@@ -16,9 +16,13 @@ public class DisplayMessageActivity extends AppCompatActivity {
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String user_name = intent.getStringExtra(MainActivity.FROM_NAME);
+        String fromText = "From ";
 
         // Capture the layout's TextView and set the string as its text
-        TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText(message);
+        TextView messageView = (TextView) findViewById(R.id.messageView);
+        messageView.setText(message);
+        TextView fromView = (TextView) findViewById(R.id.fromView);
+        fromView.setText(fromText + user_name);
     }
 }
