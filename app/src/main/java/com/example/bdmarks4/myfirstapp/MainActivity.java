@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "come.example.bdmarks4.myfirstapp.MESSAGE";
+    public static final String FROM_NAME = "come.example.bdmarks4.myfirstapp.FROM_NAME";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,8 +19,11 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.editText);
+        EditText fromName = (EditText) findViewById(R.id.fromName);
         String message = editText.getText().toString();
+        String user_name = fromName.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra(FROM_NAME, user_name);
         startActivity(intent);
     }
 }
